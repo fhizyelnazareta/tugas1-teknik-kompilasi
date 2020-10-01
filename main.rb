@@ -5,34 +5,53 @@ $tgl_pemesanan = []
 
 # fungsi untuk menampilkan semua booking kamar
 def show_data
+    puts "\t=========== Laporan Status Kamar Hotel ===========\n\n"
     if $kamar.length() <= 0
-        puts "data kosong"
+        puts " -------------------------------- "
+        puts "|No | Nomor Kamar | Status Kamar |"
+        puts " -------------------------------- "
+        puts "|          data kosong           |"
+        puts " -------------------------------- "
     else
         indexs = 0
+        puts " -------------------------------- "
+        puts "|No | Nomor Kamar | Status Kamar |"
+        puts " -------------------------------- "
         $kamar.each do |n|
-            puts "#{indexs + 1} | kamar : #{$kamar[indexs]} | status : #{$status[indexs]}"  
+            puts "|#{indexs + 1}  |     #{$kamar[indexs]}     |     #{$status[indexs]}     |"  
             indexs += 1      
         end
+        puts " -------------------------------- "
     end
 end
 
 # fungsi untuk menampilkan tanggal transaksi
 def show_transaction
+    puts "\t=========== Laporan Tanggal Transaksi Hotel ===========\n\n"
     if $kamar.length() <= 0
-        puts "data kosong"
+        puts " --------------------------------------------------- "
+        puts "|No | Nomor Kamar |               Tanggal           |"
+        puts " --------------------------------------------------- "
+        puts "|                       data kosong                 |"
+        puts " --------------------------------------------------- "
     else
         indexs = 0
+        puts " --------------------------------------------------------------------- "
+        puts "|No | Nomor Kamar |                       Tanggal                     |"
+        puts " --------------------------------------------------------------------- "
         $kamar.each do |n|
-            puts "#{indexs + 1} | kamar : #{$kamar[indexs]} | Tanggal Pemesanan : #{$tgl_pemesanan[indexs]}"  
+            puts "|#{indexs + 1}  |    #{$kamar[indexs]}      | Tanggal Pemesanan : #{$tgl_pemesanan[indexs]}     |"  
             indexs += 1      
         end
+        puts " --------------------------------------------------------------------- "
     end
 end
 
 # fungsi untuk menambah pemesanan kamar hotel
 def insert_data
     puts "\t=========== Pesanan kursi ===========\n\n"
-    puts "Contoh Kode kamar [101,201,301,401,501] angka ke-1 = lantai angka selanjutnya adalah no.kamar\n\n"
+    show_data
+    puts "\n\nContoh Kode kamar [101 - 199, 201 - 299, 301 - 399, 401 - 499, 501 - 599]\n\n"
 
     print "Masukan Nomor Kamar : "
     room_booking = gets.chomp.to_i
@@ -47,6 +66,7 @@ end
 # fungsi untuk menghapus atau membatalkan pesanan kamar
 def cancel_data
     show_data
+    puts "\n\n\t=========== Pembatalan Pemesanan Kamar Hotel ===========\n\n"
     print "\n\nMasukan nomor urutan untuk membatalkan pemesanan: "
     indexs = gets.chomp.to_i
     indexs -= 1
@@ -63,6 +83,7 @@ end
 # fungsi untuk mengubah data pemesanan kamar hotel
 def edit_data
     show_data
+    puts "\n\n\t=========== Ubah Status Kamar Hotel ===========\n\n"
     print "\n\nMasukan nomor urutan untuk mengubah data pemesanan: "
     indexs = gets.chomp.to_i
     indexs -= 1
@@ -117,6 +138,7 @@ def show_menu
         puts "\n"
         next_showMenu
     when 6
+        system("clear")
         exit(true)
     else
         puts "Maaf Pilihan Menu anda tidak tersedia, Silahkan coba lagi." 
@@ -135,6 +157,7 @@ def next_showMenu
             # system("cls") /untuk windows
             show_menu
         when "n" , "N"
+            system("clear")
             exit(true)
         else
             system("clear")
