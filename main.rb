@@ -1,4 +1,4 @@
-# Variabel Array global untuk menyimpan atau menampung data (untuk menjadikan variabel global berikan tanda $ paaa awal nama Variabel)
+# Variabel Array global untuk menyimpan atau menampung data
 $kamar = []
 $status = []
 $tgl_pemesanan = []
@@ -49,7 +49,7 @@ end
 
 # fungsi untuk menambah pemesanan kamar hotel
 def insert_data
-    puts "\t=========== Pesanan kursi ===========\n\n"
+    puts "\t=========== Pesanan kamar ===========\n\n"
     show_data
     puts "\n\nContoh Kode kamar [101 - 199, 201 - 299, 301 - 399, 401 - 499, 501 - 599]\n\n"
 
